@@ -13,7 +13,11 @@ export default class Team {
   }
 
   addAll(...players) {
-    players.forEach(player => this.members.add(player))
+    players.forEach(player => {
+      if (!this.members.has(player)) {
+        this.members.add(player)
+      }
+    })
   }
 
   toArray() {
